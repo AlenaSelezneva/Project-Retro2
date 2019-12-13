@@ -15,9 +15,41 @@
 #include "Enemy.h"
 #include "Art.h"
 #include "battle.h"
+#include "Game.h"
+
 //these two headers are already included in the <Windows.h> header
 #pragma comment(lib, "Winmm.lib")
+Character::Character()
+{
+	level = stats[0];
+	exp = 0;
+	vit = rand() % 4 + 8;
+	str = rand() % 4 + 8; ;
+	dex = rand() % 4 + 8; ;
+	maxHealth = vit * 10;
+	health = vit * 10;
+}
 
+Character::Character(std::string n)
+{
+	level = stats[0];
+	exp = 0;
+	vit = rand() % 4 + 8;
+	str = rand() % 4 + 8; ;
+	dex = rand() % 4 + 8; ;
+	maxHealth = vit * 10;
+	health = vit * 10;
+	name = n;
+}
+Character::Character(int level, int vit, int str, int dex, int health, int maxH) {
+	this->level = level;
+	this->vit = vit;
+	this->str = str;
+	this->dex = dex;
+	this->health = health;
+	this->maxHealth = maxH;
+	this->exp = level * 100;
+}
 
 void Character::getStat(int arr[3])//returns stats of a specefic character
 {
@@ -30,7 +62,6 @@ void Character::getStat(int arr[3])//returns stats of a specefic character
 			std::cout << "Dex is: " << arr[2] << std::endl;
 	}
 }
-
 int Character::choice()//Character selection
 {
 	Menu m;
@@ -38,13 +69,17 @@ int Character::choice()//Character selection
 		m.menu();
 		std::cin >> decision;
 		if (decision == 'S' || decision == 's')
-		{/*
+		{
+			std::cin >> name;
 			std::cout << " Let's Start\n";
 			vit = 10;
 			str = 10;
 			dex = 9;
+			arr[0] = vit;
+			arr[1] = str;
+			arr[2] = dex;
 			health = vit * 10;
-			*/
+
 		}
 		if (decision == 'Q' || decision == 'q') {
 
@@ -62,51 +97,25 @@ int Character::choice()//Character selection
 	}
 	system("pause");
 }
-
-
 int Character::calchp() {//Calculate health
 	return health;
 }
-
-
 void Character::takeDamage(int dmg) {
 	health -= dmg;
 	if (health <= 0) {
 		throw 0;
 	}
-
 }
-void Character::healChar() {
-	health += 25;
-	if (health >= 100) {
-		health = 100;
+void Character::healChar(int h) {
+	health += h;
+	if (health >= maxHealth) {
+		health = maxHealth;
 	}
-}/*
-char Character::useItems()//Ibrahim Jaber use the items
+}
+
+int Character::increaseXp()//Increases level no saving progress yet....
 {
-	Art potions;
-	//battle o(game);
-	char ch{ 'h' };
-	std::cin >> ch;
-	if (ch == '1') {
-		o.test();
-
-	}
-	if (ch == '2') {
-		std::cout << "Choose one of those\n";
-		potions.consH();
-		healChar();
-	}
-	return ch;
-}
-*/
-
-Character::Character() {
-	level = 1;
-	exp = 0;
-	vit = rand() % 4 + 8;
-	str = rand() % 4 + 8; ;
-	dex = rand() % 4 + 8; ;
-	maxHealth = vit * 10;
-	health = vit * 10;
+	(*ptr) += 1;
+	//std::cout << "Your Level is: ";
+	return level;
 }

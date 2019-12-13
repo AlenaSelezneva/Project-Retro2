@@ -1,9 +1,12 @@
 #include "Game.h"
 #include "Character.h"
-
+#include "Inventory.h"
 Game::Game() {
 	player = new Character();
 	enemy = nullptr;
+}
+Game::~Game() {
+	delete[] player;
 }
 Character* Game::getCharacter() {
 	return player;
@@ -11,6 +14,10 @@ Character* Game::getCharacter() {
 /* */
 void Game::setEnemy(Enemy* en) {
 	enemy = en;
+}
+
+void Game::setCharacter(Character* c) {
+	player = c;
 }
 
 Enemy* Game::getEnemy() {

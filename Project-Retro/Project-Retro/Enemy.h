@@ -5,7 +5,6 @@ class Enemy : public Character
 {
 public:
 	Enemy();
-
 	void disEnemyRotation();
 	void setStat();
 	int curHealthE(Character other);
@@ -14,5 +13,6 @@ public:
 	std::string gandalf = "Gandalf";
 	std::string voldemort = "Voldemort";
 	std::string smaug = "Smaug";
+	void ultimateDamage();
 private:
 };

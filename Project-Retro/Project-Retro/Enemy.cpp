@@ -7,6 +7,17 @@
 
 
 
+Enemy::Enemy()
+{
+	level = 1;
+	exp = 0;
+	vit = rand() % 4 + 6;
+	str = rand() % 4 + 6; ;
+	dex = rand() % 4 + 6; ;
+	maxHealth = vit * 10;
+	health = vit * 10;
+}
+
 void Enemy::disEnemyRotation()
 {
 	Art t;
@@ -16,23 +27,6 @@ void Enemy::disEnemyRotation()
 	std::vector <int> test{ vit,str,dex };
 	std::string list[3] = { gandalf,smaug,voldemort };
 	int abil[3];
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, 13);
-	for (int i{ 0 }; i < 10; i++) {
-		unsigned int j = rand() % 3;
-		unsigned int k = rand() % 15;
-		SetConsoleTextAttribute(hConsole, k);
-		Sleep(400);
-		system("cls");
-		t.ingage();
-		//change 0 to j to randomize
-		curr = list[0];
-		//system("cls");
-
-	}
-	std::cout << std::endl;
-	SetConsoleTextAttribute(hConsole, 7);
-
 	//std::cout << "You are fighting: " << curr;
 	//commented list out because we want to test with a stable enemy
 	if (curr == list[0]) {
@@ -100,13 +94,7 @@ int Enemy::curHealthE(Character other)
 	return this->health;
 }
 
-
-Enemy::Enemy() {
-	level = 1;
-	exp = 0;
-	vit = rand() % 4 + 6;
-	str = rand() % 4 + 6; ;
-	dex = rand() % 4 + 6; ;
-	maxHealth = vit * 10;
-	health = vit * 10;
+void Enemy::ultimateDamage()//Had to use the function here since Enemy is inherting from character and i cannot use Enemy as parameter in a function therefore i used this in enemy
+{
+	health -= 25;
 }

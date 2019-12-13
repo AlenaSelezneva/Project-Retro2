@@ -9,6 +9,7 @@ public:
 	void personalMenu();
 	void charHS();
 	void charChoice();
+	void CopyR();
 
 
 };
