@@ -1,0 +1,6 @@
+﻿  Chapter1.cpp
+  Character.cpp
+  Source.cpp
+  Generating Code...
+D:\GEX\Text-based game myGit\Project-Retro2\Project-Retro\Project-Retro\Character.cpp(64): warning C4715: 'Character::choice': not all control paths return a value
+  Project-Retro.vcxproj -> D:\GEX\Text-based game myGit\Project-Retro2\Project-Retro\Debug\Project-Retro.exe
