@@ -1,5 +1,0 @@
-﻿  battle.cpp
-C:\Users\jber5\Desktop\C++ independent projects\スチームパンク\スチームパンク\battle.cpp(21,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\jber5\Desktop\C++ independent projects\スチームパンク\スチームパンク\battle.cpp(44,16): warning C4101: 'e': unreferenced local variable
-C:\Users\jber5\Desktop\C++ independent projects\スチームパンク\スチームパンク\battle.cpp(67,17): warning C4101: 'e': unreferenced local variable
-  スチームパンク.vcxproj -> C:\Users\jber5\Desktop\C++ independent projects\スチームパンク\x64\Debug\スチームパンク.exe
